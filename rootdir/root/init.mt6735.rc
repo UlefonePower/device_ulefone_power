@@ -1065,10 +1065,6 @@ service mc64xxd /system/bin/mc64xxd
     class main
 
 # Jone.Chen for finger
-service fp /system/bin/fpserver
-    class main
-    user root  
-
 service etsd /system/bin/etsd
     class late_start
     user root
@@ -1077,11 +1073,6 @@ service etsd /system/bin/etsd
 service fingerprintd /system/bin/fingerprintd
     class late_start
     user system
-
-service cdfingerdaemon /system/bin/cdfingerdaemon
-	class main
-	user system
-	group system
 
 service gx_fpd /system/bin/gx_fpd
     class late_start
