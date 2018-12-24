@@ -970,7 +970,6 @@ service s62xd /system/bin/s62xd
     user compass
     group system
     class main
-
 service ami304d /system/bin/ami304d
     user system
     group system
@@ -978,22 +977,21 @@ service ami304d /system/bin/ami304d
     class main
 
 service memsicd /system/bin/memsicd
-    disabled
+     disabled
     user system
     group system
     class main
 
-service memsicp /system/bin/memsicp
-    user system
-    group system
-    class main
+service bstd /system/bin/bstd
+class main
+user system
+group system
 
 service memsicd3416x /system/bin/memsicd3416x
      disabled
 	 user system
     group system
     class main
-
 service akmd8975 /system/bin/akmd8975
     disabled
     user system
@@ -1006,25 +1004,16 @@ service akmd8963 /system/bin/akmd8963
     group system
     class main
 
+service memsicp /system/bin/memsicp
+    oneshot
+    user system
+    group system
+    class main
 service akmd09911 /system/bin/akmd09911
     disabled
     user system
     group system
     class main
-	
-service qmcX983d   /system/bin/qmcX983d
-    disabled
-    user system
-    group system
-    class main
-    oneshot
-	
-service mc6420d   /system/bin/mc6420d
-    disabled
-    user system
-    group system
-    class main
-
 service bmm050d /system/bin/bmm050d
     disabled
     user system
@@ -1036,16 +1025,14 @@ service bmm056d /system/bin/bmm056d
     user system
     group system
     class main
-
-service mxg2320d /system/bin/mxg2320d
+service mc6420d /system/bin/mc6420d
     disabled
     user system
     group system
     class main
-
 service qmc5983d /system/bin/qmc5983d
-    disabled
-    user system
+     disabled
+	 user system
     group system
     class main
 
@@ -1054,7 +1041,6 @@ service orientationd /system/bin/orientationd
     user system
     group system input
     class main
-
 service AcdApiDaemon /system/bin/AcdApiDaemon
     disabled
     user system
@@ -1068,7 +1054,6 @@ service geomagneticd /system/bin/geomagneticd
     class main
 
 service mpud6050 /system/bin/mpud6050
-    disabled
     oneshot
     user system
     group system
@@ -1078,6 +1063,31 @@ service mc64xxd /system/bin/mc64xxd
     user system
     group system
     class main
+
+# Jone.Chen for finger
+service fp /system/bin/fpserver
+    class main
+    user root  
+
+service etsd /system/bin/etsd
+    class late_start
+    user root
+    group root system
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+
+service cdfingerdaemon /system/bin/cdfingerdaemon
+	class main
+	user system
+	group system
+
+service gx_fpd /system/bin/gx_fpd
+    class late_start
+    user root
+    group root system
+
 #
 #sensor service (end)
 #
